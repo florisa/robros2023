@@ -1,0 +1,214 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/ThreadMetalPlate.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Roughcast.proto"
+EXTERNPROTO "../protos/Spot.proto"
+EXTERNPROTO "../protos/SpotArm.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/microsoft/protos/Kinect.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/devices/velodyne/protos/VelodynePuck.proto"
+EXTERNPROTO "../protos/ImageBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidPipe.proto"
+
+WorldInfo {
+  title "Spot_Maze"
+}
+Viewpoint {
+  orientation -0.46518843458397735 -0.4351211574252577 0.7708886422111902 4.495311935890764
+  position 6.10565483752399 11.844462152256044 20.940358649069587
+}
+TexturedBackground {
+  texture "factory"
+  skybox FALSE
+}
+RectangleArena {
+  translation 4.25 0 0
+  rotation 0 1 0 0
+  floorSize 10 10
+  floorTileSize 1 1
+  floorAppearance ThreadMetalPlate {
+  }
+  wallHeight 1.7
+  wallAppearance Roughcast {
+    colorOverride 0.533333 0.541176 0.521569
+    textureTransform TextureTransform {
+      scale 5 1.75
+    }
+  }
+}
+WoodenBox {
+  translation 7.28154 -4.865 0.86
+  rotation 0 0 1 3.46682e-06
+  name "wooden box(3)"
+  size 0.2 0.15 0.2
+}
+WoodenBox {
+  translation 7.15949 -4.88159 0.86
+  rotation 0 0 1 -2.3561953071795863
+  name "wooden box(2)"
+  size 0.15 0.1 0.2
+}
+WoodenBox {
+  translation 7.39987 -4.87745 0.86
+  rotation 0 0 -1 0.785407
+  name "wooden box(1)"
+  size 0.15 0.1 0.2
+}
+DEF Spot Spot {
+  translation 7.29 0.109999 0.6
+  rotation 0 0 1 -1.5707853071795865
+  controller "<extern>"
+  supervisor TRUE
+  frontExtension [
+    SpotArm {
+      translation 0 0 -0.094
+      rotation -0.5773509358537164 0.5773479358540498 0.5773519358536053 2.0944
+      gripperCam [
+        Camera {
+          translation 0.19 0 0
+          name "gripper camera"
+          width 1280
+          height 1280
+        }
+      ]
+    }
+    Kinect {
+      translation 0 -0.007 -0.240831
+      rotation 1 0 0 -0.35
+      foot FALSE
+    }
+  ]
+  middleExtension [
+    VelodynePuck {
+      translation 0 0.04 0.09
+      rotation -0.577349935856137 0.577349935856137 0.5773509358560258 2.09439
+      name "Velodyne_Puck"
+    }
+  ]
+}
+DEF ImgBox0 ImageBox {
+  translation 7.6456 -4.8722 0.86998
+  size 0.06 0.06 0.01
+  rotation 5.166272054406548e-07 0.7071062811860775 0.7071072811864753 3.14159
+  name "pipe_imgbox_0"
+}
+DEF ImgBox1 ImageBox {
+  translation 7.44681 -4.82927 0.86998
+  size 0.06 0.06 0.01
+  rotation 0.2810849120718748 0.6785997877224834 0.6785967877234219 2.59356
+  name "pipe_imgbox_1"
+}
+DEF ImgBox2 ImageBox {
+  translation 7.2856 -4.7722 0.86998
+  size 0.06 0.06 0.01
+  rotation 5.166272054406548e-07 0.7071062811860775 0.7071072811864753 3.14159
+  name "pipe_imgbox_2"
+}
+DEF ImgBox3 ImageBox {
+  translation 7.10267 -4.82927 0.86998
+  size 0.06 0.06 0.01
+  rotation -0.2810839910793781 0.6785959784637391 0.6786009784635805 -2.593565307179586
+  name "pipe_imgbox_3"
+}
+DEF ImgBox4 ImageBox {
+  translation 6.8956 -4.8722 0.86998
+  size 0.06 0.06 0.01
+  rotation 5.166272054406548e-07 0.7071062811860775 0.7071072811864753 3.14159
+  name "pipe_imgbox_4"
+}
+WoodenBox {
+  translation 7.27 -4.95 0.86
+  size 1.22 0.1 0.2
+}
+SolidPipe {
+  translation 7.45388 -4.8222 0.86998
+  rotation 0.8628563066501258 -0.35740612701840735 0.3574071270187627 -1.7177753071795863
+  name "pipe(2)"
+  height 0.1
+  radius 0.05
+  thickness 0.02
+  subdivision 12
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/metal.jpg"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidPipe {
+  translation 7.10267 -4.82927 0.86998
+  rotation 0.8628559982596194 0.35740699927911007 -0.35740699927911007 -1.7177653071795866
+  name "pipe(1)"
+  height 0.1
+  radius 0.05
+  thickness 0.02
+  subdivision 12
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/metal.jpg"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidPipe {
+  translation 7.2856 -4.7722 0.86998
+  rotation 1 -7.35416e-07 3.30342e-07 -1.5707953071795862
+  name "pipe(3)"
+  height 0.1
+  radius 0.05
+  thickness 0.02
+  subdivision 30
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/metal.jpg"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidPipe {
+  translation 7.6456 -4.8722 0.86998
+  rotation 1 -7.35416e-07 3.30342e-07 -1.5707953071795862
+  name "pipe(4)"
+  height 0.1
+  radius 0.05
+  thickness 0.02
+  subdivision 12
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/metal.jpg"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
+SolidPipe {
+  translation 6.8956 -4.8722 0.86998
+  rotation 1 -7.35416e-07 3.30342e-07 -1.5707953071795862
+  name "pipe(5)"
+  height 0.1
+  radius 0.05
+  thickness 0.02
+  subdivision 12
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/metal.jpg"
+      ]
+    }
+    roughness 0.5
+    metalness 0
+  }
+}
